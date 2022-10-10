@@ -1,0 +1,27 @@
+<div class="p-3">
+  <form [formGroup]="addContactForm" (submit)="onSubmit()">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name of the contact</mat-label>
+        <input type="text" formControlName="name" placeholder="Enter Name" matInput>
+        <mat-error>Name is Required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Contact Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="lastContactDate" matInput>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>Invalid date</mat-error>
+      </mat-form-field>
+      <input type="file" (change)="fileSelected($event)" accept="image/*" />
+      <button [disabled]="!image || addContactForm.invalid" mat-flat-button color="primary"
+        class="col-12 mt-2">Submit</button>
+      <mat-progress-bar mode="indeterminate" *ngIf="isSubmitLoading"></mat-progress-bar>
+    </div>
+  </form>
+</div>
+
+<div class="p-5 bg-danger" *ngIf="errorMessage">
+  <p class="text-center text-white"><strong>{{errorMessage}}</strong></p>
+</div>

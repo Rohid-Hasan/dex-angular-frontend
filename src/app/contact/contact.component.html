@@ -1,0 +1,12 @@
+<div class="my-2">
+  <button mat-flat-button col="12" color="primary" class="col-12" (click)="addContactPopup()">Add Contact</button>
+</div>
+
+<div class="my-3">
+  <app-list-contact [contacts]="contacts" *ngIf="!isLoading"></app-list-contact>
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+  <div class="p-5 bg-danger" *ngIf="errorMessage">
+    <p class="text-center text-white"><strong>{{errorMessage}}</strong></p>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div *ngIf="contacts.length > 0">
+  <!-- list of contacts -->
+  <div class="row">
+    <div *ngFor="let contact of contacts" class="col-xl-4 col-md-6 col-sm-2">
+      <div class="card">
+        <img src="{{backendUrl}}/{{contact.imageUrl}}" class="card-img-top img-fluid" alt="{{contact.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{contact.name}}</h5>
+          <p class="card-text">{{contact.lastContactDate | date:'fullDate'}}</p>
+          <button class="btn btn-primary" (click)="viewDetailPopup(contact)">View Detail</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="text-center text-muted" *ngIf="contacts.length == 0">
+  <strong>No contacts in the database</strong>
+</p>

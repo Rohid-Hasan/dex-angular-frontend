@@ -1,0 +1,8 @@
+<div class="card">
+  <img src="{{backendUrl}}/{{contact.imageUrl}}" class="card-img-top img-fluid" alt="{{contact.name}}">
+  <div class="card-body text-center">
+    <h1 class="card-title">{{contact.name}}</h1>
+    <p class="card-text">{{contact.lastContactDate | date:'fullDate'}}</p>
+  </div>
+  <button mat-flat-button color="primary" [mat-dialog-close] class="col-12">OK</button>
+</div>
